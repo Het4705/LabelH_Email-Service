@@ -10,25 +10,28 @@ const app = express();
 app.use(express.json());
 
 // Define allowed origins
-const allowedOrigins = process.env.FRONTEND_URLS.split(',');
+// const allowedOrigins = process.env.FRONTEND_URLS.split(',');
 
 
 // CORS options
-const corsOptions = {
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like Postman, curl)
-      console.log("Incoming origin:", origin);
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  }
-};
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     // Allow requests with no origin (like Postman, curl)
+//       console.log("Incoming origin:", origin);
+//     if (!origin) return callback(null, true);
+//     if (allowedOrigins.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   }
+// };
 
 // Use CORS middleware with the options
-app.use(cors(corsOptions));
+app.use(cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true
+}));
 
 app.get("/", (req, res) => {
   res.send("Welcome to The Label H Email Service");
