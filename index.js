@@ -31,6 +31,10 @@ const corsOptions = {
 // Use CORS middleware with the options
 app.use(cors(corsOptions));
 
+app.get("/", (req, res) => {
+  res.send("Welcome to The Label H Email Service");
+});
+
 app.post('/send-order-confirmation', async (req, res) => {
   console.log(req.body);
   const {
