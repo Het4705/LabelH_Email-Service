@@ -12,7 +12,7 @@ app.use(express.json());
 // Define allowed origins
 const allowedOrigins = [
    process.env.FRONTEND_URL,
-  "http://localhost:8080" // For local dev if needed
+  // "http://localhost:8080" // For local dev if needed
 ];
 
 // CORS options
@@ -36,7 +36,7 @@ app.get("/", (req, res) => {
 });
 
 app.post('/send-order-confirmation', async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const {
     user,
     order,
