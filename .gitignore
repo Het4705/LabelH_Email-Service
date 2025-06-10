@@ -1,0 +1,36 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# dotenv environment files
+.env
+.env.*  # in case you use .env.development, etc.
+
+# OS-related
+.DS_Store
+Thumbs.db
+
+# VS Code settings
+.vscode/
+
+# Build directories
+dist/
+build/
+
+# Optional: coverage reports from test tools
+coverage/
+
+# Optional: local database files or debug data
+*.sqlite
+*.sqlite3
+*.bak
+
+# Optional: compiled files (if any)
+*.out
+*.tsbuildinfo
