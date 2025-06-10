@@ -11,8 +11,7 @@ app.use(express.json());
 
 // Define allowed origins
 const allowedOrigins = [
-  "https://example1.com",
-  "https://example2.com",
+   process.env.FRONTEND_URL,
   "http://localhost:8080" // For local dev if needed
 ];
 
