@@ -9,24 +9,6 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-// Define allowed origins
-// const allowedOrigins = process.env.FRONTEND_URLS.split(',');
-
-
-// CORS options
-// const corsOptions = {
-//   origin: function (origin, callback) {
-//     // Allow requests with no origin (like Postman, curl)
-//       console.log("Incoming origin:", origin);
-//     if (!origin) return callback(null, true);
-//     if (allowedOrigins.indexOf(origin) !== -1) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error("Not allowed by CORS"));
-//     }
-//   }
-// };
-
 // Use CORS middleware with the options
 app.use(cors({
     origin: process.env.FRONTEND_URL,
@@ -34,10 +16,12 @@ app.use(cors({
 }));
 
 app.get("/", (req, res) => {
+  console.log("Received a GET request to the root endpoint");
   res.send("Welcome to The Label H Email Service");
 });
 
 app.post('/send-order-confirmation', async (req, res) => {
+  console.log("Received a Post request to the root endpoint");
   // console.log(req.body);
   const {
     user,
