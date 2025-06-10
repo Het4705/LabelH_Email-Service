@@ -10,15 +10,14 @@ const app = express();
 app.use(express.json());
 
 // Define allowed origins
-const allowedOrigins = [
-   process.env.FRONTEND_URL
-  // "http://localhost:8080" // For local dev if needed
-];
+const allowedOrigins = process.env.FRONTEND_URLS.split(',');
+
 
 // CORS options
 const corsOptions = {
   origin: function (origin, callback) {
     // Allow requests with no origin (like Postman, curl)
+      console.log("Incoming origin:", origin);
     if (!origin) return callback(null, true);
     if (allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
