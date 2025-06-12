@@ -17,6 +17,7 @@ const formatEmail = ({ user, order, products }) => {
             <th align="left" style="padding: 8px; border-bottom: 1px solid #ccc;">Size</th>
             <th align="left" style="padding: 8px; border-bottom: 1px solid #ccc;">Quantity</th>
             <th align="left" style="padding: 8px; border-bottom: 1px solid #ccc;">Price</th>
+            <th align="left" style="padding: 8px; border-bottom: 1px solid #ccc;">Your Customization</th>
           </tr>
         </thead>
         <tbody>
@@ -29,6 +30,7 @@ const formatEmail = ({ user, order, products }) => {
               <td style="padding: 8px;">${p.size?.length || 'N/A'}</td>
               <td style="padding: 8px;">${p.quantity}</td>
               <td style="padding: 8px;">₹${p.price}</td>
+              <td style="padding: 8px;">${p?.customization}</td?
             </tr>
           `).join('')}
         </tbody>
